@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Happy Birthday</title>
+  <link rel="stylesheet" href="happy birtday.css">
+</head>
+<body>
+  <canvas id="c"></canvas>
+  
+  <!-- Audio element for birthday song -->
+  <audio id="birthdaySong" loop>
+    <source src="birthday-song.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+  
+ <button class="music-control" id="musicBtn" data-short="🎵" onclick="toggleMusic()">
+  🎵 Play Music
+</button>
+
+<button class="clickable-message" onclick="showMessage()">
+  🎉 Click for a Special Message! 🎉
+</button>
+
+
+<div id="messageBox" class="card-popup">
+  <span class="close-btn" onclick="closeMessage()">&times;</span>
+  <div class="card-content">
+    <h2>💌 A Special Message 💌</h2>
+    <p>🎂 Wishing you the happiest of birthdays! I love you so much! Keep doing what you think is best for you!<br>💖 I'm here lang to support you, and I'm always proud of you! May all your dreams come true! I hope you"ll like this present :> 🎉</p>
+  </div>
+</div>
+  
+  <!-- Link the external JavaScript -->
+  <script src="happy birtday.js"></script>
+</body>
+</html>

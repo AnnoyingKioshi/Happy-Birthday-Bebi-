@@ -1,0 +1,168 @@
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+/* 🎵 Music + 🎉 Message Buttons */
+.music-control,
+.clickable-message {
+  position: fixed; /* fixed = stays in place during resize/scroll */
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  padding: 10px 20px;
+  border-radius: 20px;
+  font-family: 'Comic Sans MS', cursive;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+  max-width: 90%; /* prevent overflow */
+  text-align: center;
+  word-wrap: break-word;
+}
+
+/* Hover/tap feedback */
+.music-control:hover,
+.clickable-message:hover {
+  background: rgba(255, 255, 255, 1);
+  transform: scale(1.05);
+}
+.music-control:active,
+.clickable-message:active {
+  transform: scale(0.95);
+}
+
+/* Position */
+.music-control {
+  top: 20px;
+  right: 20px;
+}
+
+.clickable-message {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* 📱 Responsive Adjustments */
+@media (max-width: 768px) {
+  .music-control,
+  .clickable-message {
+    font-size: 14px;
+    padding: 8px 15px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .music-control,
+  .clickable-message {
+    font-size: 12px;
+    padding: 6px 12px;
+  }
+
+  /* Shorter text for tiny screens */
+  #musicBtn::after {
+    content: attr(data-short);
+  }
+  #musicBtn {
+    font-size: 14px;
+  }
+}
+
+
+/* Birthday Card Popup - Centered */
+.card-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  background: linear-gradient(135deg, #fff5d7, #ffe0f0);
+  border: 3px solid #f39c12;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 350px;
+  padding: 25px 20px 20px;
+  text-align: center;
+  font-family: 'Comic Sans MS', ;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+  z-index: 1000;
+  animation: popIn 0.5s ease forwards;
+}
+
+.card-popup h2 {
+  font-size: 20px;
+}
+
+.card-popup p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.close-btn {
+  font-size: 20px;
+}
+
+
+.close-btn:hover {
+  color: #f39c12;
+}
+
+/* Animation */
+@keyframes popIn {
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+}
+
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate(-50%, 50px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+/* Close button inside the message box */
+.close-btn {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.close-btn:hover {
+  color: #f39c12;
+}
+
+/* Make buttons bigger on mobile */
+.music-control, .clickable-message {
+  font-size: 14px;
+  padding: 8px 15px;
+}
+
+@media (max-width: 600px) {
+  .music-control, .clickable-message {
+    font-size: 12px;
+    padding: 6px 12px;
+    border-radius: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  canvas {
+    width: 100%;
+    height: 100%;
+  }
+}
